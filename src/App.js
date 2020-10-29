@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-template-curly-in-string */
 import React, {useEffect, useState} from 'react';
-import Recipe from './components/Recipe';
+import * as globalconstants from './constants/global-constants';
 import './App.css';
+import Recipe from './components/Recipe';
+import Jumbotron from './components/Jumbotron';
 
 const App = () => {
-
-  const APP_ID = 'd54babbf';
-  const APP_KEY = 'b403a1492298443633d60fd293256202'
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
@@ -18,10 +17,9 @@ const App = () => {
   }, [query]);
 
   const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${globalconstants.APP_ID}&app_key=${globalconstants.APP_KEY}`)
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits)
   }
 
   const updateSearch = e => {
@@ -33,12 +31,16 @@ const App = () => {
     setQuery(search);
     setSearch('');
   }
-
-  return (
+  return (  
+    
     <div className="App">
+    
+      <Jumbotron />
+   
         <form className="search-form" onSubmit={getSearch}>
           <input className="search-bar" 
-          type="text" 
+          type="text"
+          placeholder="Search by recipe or food, Ej: Persian Chicken or banana"
           value={search} 
           onChange={updateSearch}            
           />
@@ -47,13 +49,17 @@ const App = () => {
           </button>
         </form>
 
+        <div className="cont-subtitle">
+          <p className="subtitle">Recommended recipes</p>
+        </div>
+
         <div className="recipes">
           {recipes.map(recipe => (
             <Recipe 
               key={recipe.recipe.label}
-              title={recipe.recipe.label} 
-              calories={recipe.recipe.calories}
               image={recipe.recipe.image}
+              title={recipe.recipe.label}              
+              calories={recipe.recipe.calories}    
               ingredients={recipe.recipe.ingredients}
             />
           ))};
