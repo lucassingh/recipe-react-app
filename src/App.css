@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -26,11 +29,50 @@
   border: none;
   padding: 10px 20px;
   color: #fff;
+  cursor: pointer;
+}
+
+.cont-subtitle {
+  padding-left: 50px;
+  padding-left: 50px;
+  font-size: 22px;
+  margin: 35px 0px 0px 0px;
+}
+
+.subtitle {
+  font-family: 'Roboto', sans-serif;
 }
 
 .recipes {
+  padding: 50px;
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container-footer {
+  background: #332c2c;
+  padding: 40px 0 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.text-footer {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+@media screen and (max-width: 414px) {
+  .recipes {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .container-footer {
+    padding: 20px 0 20px 0;
+  }
 }
 
