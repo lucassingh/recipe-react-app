@@ -50,6 +50,18 @@
   justify-content: space-between;
 }
 
+.container-footer {
+  background: #332c2c;
+  padding: 40px 0 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.text-footer {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
 @media screen and (max-width: 414px) {
   .recipes {
     padding: 50px;
@@ -57,6 +69,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  .container-footer {
+    padding: 20px 0 20px 0;
   }
 }
 

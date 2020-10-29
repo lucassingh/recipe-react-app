@@ -64,7 +64,9 @@ const App = () => {
             />
           ))};
         </div>
-              
+        <footer className="container-footer">
+          <p className="text-footer">Recipes-app - 2020</p>
+        </footer>
     </div>
   );
 }
